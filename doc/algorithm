@@ -1,0 +1,11 @@
+The algorithm to find Systolic and Diastolic pressures works like this:
+
+    - First we run the data set looking for points of interest, ie, when signal starts to grow up and down;
+    - Then we save these points in a vector;
+    - We classify these points as "Diastolic", "Systolic" and "Notch";
+    - With the index passed by the client, we search for the two points in which shuch index would be in the middle, ignoring those marked as "Notch";
+    - In the end, the index passed by client will be between a Diastolic/Systolic nodes, which gives us both pressures;
+    - However, we need to find the closest point to our index, so, from the index itself we go left and right in th data set looking for the first occurrence of each pressure;
+    - When they are found, we set the their indexes in the data structure. 
+    - If it's not possible to find one of the pressures, the API returns NULL, which should be treated as an error;
+    - Otherwise, a valid pointer is returned, and the client is responsible for freeing the object. 
