@@ -146,7 +146,7 @@ struct blood_pressure* find_points(int data[], int index)
 
   if (!found) return NULL;
 
-  struct blood_pressure* bp;
+  struct blood_pressure* bp = new struct blood_pressure;
 
   if (value_1 > value_2)
   {
